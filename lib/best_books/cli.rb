@@ -13,6 +13,24 @@ class BestBooks::CLI
     goodbye 
   end 
   
+  def menu 
+    puts ""
+    puts "To see the categories, type category."  #inside categories, they should be able to get more information about a book 
+    puts "To see a list of the book titles, enter titles"
+    puts "Type 'exit' to exit the program."
+    input = nil 
+    while input != "exit"
+      input = gets.strip.downcase
+      case input 
+        when "category"
+          list_categories 
+        when "titles"
+          list_book_titles 
+        else puts "I don't understand. Please type: category, titles, or exit."
+      end 
+    end 
+  end 
+    
   
   def goodbye 
     puts "Goodbye! Enjoy your books!"
