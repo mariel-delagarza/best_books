@@ -1,0 +1,7 @@
+#This is the file that runs our program. 
+
+!/usr/bin/env ruby
+
+require './lib/environment'
+
+BestBooks::CLI.new.call
