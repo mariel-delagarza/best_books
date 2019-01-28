@@ -31,6 +31,10 @@ class BestBooks::CLI
     end 
   end 
     
+    
+  def list_categories
+  end 
+  
   
   def goodbye 
     puts "Goodbye! Enjoy your books!"
