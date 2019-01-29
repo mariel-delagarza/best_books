@@ -20,8 +20,8 @@ class BestBooks::CLI
   def list_categories
     puts ""
     puts "Below is a list of the categories."
-    list = BestBooks::Categories.all
-    list.each.with_index(1) do |category, i|
+    @list = BestBooks::Categories.all
+    @list.each.with_index(1) do |category, i|
       puts "#{i}. #{category}"
     end 
   end
@@ -37,7 +37,7 @@ class BestBooks::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        category = @categories[input.to_i-1]  
+        category = @list[input.to_i-1]  
         puts "#{category.book}"
         
       elsif input == "categories"
