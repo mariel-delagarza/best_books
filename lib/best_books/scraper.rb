@@ -13,11 +13,13 @@ class BestBooks::Scraper
 
   def self.scrape_books
     books = []
+    book_urls = []
     self.get_page.css("div.categoryContainer").each do |book_box|
       book_box.css(".category.clearFix a").each do |book|
         category = book.css(".category__copy").text
         title = book.css(".category__winnerImage").each{|img| puts img["alt"]}
         book_url = "#{book.attr('href')}"
+        book_urls << book_url
         books << {category: category, title: title, book_url: book_url}
       end
     end
@@ -25,15 +27,10 @@ class BestBooks::Scraper
   end
 
 
-
-
-      category = container.css(category html)
-      title = container.css(title html)
-      book_url = "#{container.attr('href')}"
-      books << {category: category, title: title, url: url}
-    end
-    books
-  end
+  def scrape.book_urls
+    book = {}
+    book_urls.each do |url|
+      book_info = Nokogiri::HTML(open("#{url}"))
 
 
 
