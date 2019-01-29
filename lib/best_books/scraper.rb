@@ -27,10 +27,15 @@ class BestBooks::Scraper
   end
 
 
-  def scrape.book_urls
+  def scrape.book_urls(book_urls)
     book = {}
     book_urls.each do |url|
       book_info = Nokogiri::HTML(open("#{url}"))
+       book[:author] = book_info.css("div.authorName__container a span").text
+       book[:description] = book_info.css("div.readable.stacked.gcaBookDescription").text
+     end
+   end
+ end
 
 
 
