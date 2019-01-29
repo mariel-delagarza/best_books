@@ -11,7 +11,7 @@ class BestBooks::Category
   
   def self.scrape_categories
     #Go to goodreads, find the category, extract the properties, instantiate category"
-    #categories = []
+    categories = []
     
     categories << self.scrape_winner_page 
     
@@ -26,9 +26,11 @@ class BestBooks::Category
     #mystery.url = "https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2018"
 
     #[fiction, mystery]
-    #categories 
+    categories 
   end 
 
   def self.scrape_winner_page
     doc = Nokogiri::HTML(open("https://www.goodreads.com/choiceawards/best-books-2018"))
+    binding.pry 
+  end 
 end
