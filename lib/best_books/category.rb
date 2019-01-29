@@ -6,8 +6,10 @@ class BestBooks::Category
 
   def self.all
     #scrape goodreads and return categories based on that data 
-    #BestBooks::CategoryScraper.new 
-
+    self.scrape_categories
+  end
+  
+  def self.scrape_categories
     fiction = self.new
     fiction.name = "Fiction"
     fiction.book = "Still Me (Me Before You #3)"
@@ -19,6 +21,6 @@ class BestBooks::Category
     mystery.url = "https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2018"
 
     [fiction, mystery]
-  end
+  end 
 
 end
