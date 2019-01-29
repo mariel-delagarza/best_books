@@ -20,9 +20,9 @@ class BestBooks::CLI
   def list_categories
     puts ""
     puts "Below is a list of the categories."
-    @categories = BestBooks::Category.all
-    @categories.each.with_index(1) do |category, i|
-      puts "#{i}. #{category.name}"
+    list = BestBooks::Category.all
+    list.each.with_index(1) do |category, i|
+      puts "#{i}. #{category}"
     end 
   end
 
