@@ -2,7 +2,7 @@
 #In your bin file, think about loading an interpreter and then loading an
 #environment of some sort.
 
-require '.lib/best_books'
+require './lib/best_books'
 #The idea is that I have a class called CLI that I can instantiate
 #and say the call method on, and that's all I need to start my program.
 
