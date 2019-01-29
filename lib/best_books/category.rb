@@ -3,6 +3,7 @@
 class BestBooks::Category
   attr_accessor :name, :book, :url
 
+
   def self.all
     #should return each category instance
     puts <<-DOC.gsub /^\s*/,''
@@ -10,12 +11,12 @@ class BestBooks::Category
       2. Mystery & Thriller
     DOC
 
-    fiction = Category.new
+    fiction = self.new
     fiction.name = "Fiction"
     fiction.book = "Still Me (Me Before You #3)"
     fiction.url = "https://www.goodreads.com/book/show/35791968-still-me?from_choice=true"
 
-    mystery = Category.new
+    mystery = self.new
     mystery.name = "Horror"
     mystery.book = "The Outsider"
     mystery.url = "https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2018"

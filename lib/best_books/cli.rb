@@ -32,18 +32,15 @@ class BestBooks::CLI
       puts "Type exit to exit program."
       puts ""
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Top book in Fiction..."
-        puts ""
-      when "2"
-        puts "Top book in Horror..."
-        puts ""
-      when "categories"
+
+      if input.to_i > 0
+          puts @categories[input.to_i-1]
+      elsif input == "categories"
         list_categories
       else
         puts "I don't understand. Please enter a category number, type list, or type exit."
       end
+
     end
   end
 
