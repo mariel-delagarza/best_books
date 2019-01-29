@@ -17,7 +17,7 @@ class BestBooks::Category
     fiction.url = "https://www.goodreads.com/book/show/35791968-still-me?from_choice=true"
 
     mystery = self.new
-    mystery.name = "Horror"
+    mystery.name = "Mystery & Thriller"
     mystery.book = "The Outsider"
     mystery.url = "https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2018"
 
