@@ -6,10 +6,10 @@ class BestBooks::Category
 
   def self.all
     #should return each category instance
-    puts <<-DOC.gsub /^\s*/,''
-      1. Fiction
-      2. Mystery & Thriller
-    DOC
+    #puts <<-DOC.gsub /^\s*/,''
+    #  1. Fiction
+    #  2. Mystery & Thriller
+    #DOC
 
     fiction = self.new
     fiction.name = "Fiction"
