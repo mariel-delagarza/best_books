@@ -20,10 +20,6 @@ class BestBooks::CLI
   def list_categories
     puts ""
     puts "Below is a list of the categories."
-    puts <<-DOC.gsub /^\s*/,''
-      1. Fiction
-      2. Horror
-    DOC
     @categories = BestBooks::Category.all
   end
 

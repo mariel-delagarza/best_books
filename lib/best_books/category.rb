@@ -4,6 +4,10 @@ class BestBooks::Category
 
   def self.all
     #should return each category instance
+    puts <<-DOC.gsub /^\s*/,''
+      1. Fiction
+      2. Horror
+    DOC
   end
 
-end 
+end
