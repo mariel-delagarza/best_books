@@ -5,11 +5,8 @@ class BestBooks::Category
 
 
   def self.all
-    #should return each category instance
-    #puts <<-DOC.gsub /^\s*/,''
-    #  1. Fiction
-    #  2. Mystery & Thriller
-    #DOC
+    #scrape goodreads and return categories based on that data 
+    #BestBooks::CategoryScraper.new 
 
     fiction = self.new
     fiction.name = "Fiction"
