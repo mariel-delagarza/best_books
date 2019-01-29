@@ -13,18 +13,22 @@ class BestBooks::Category
     #Go to goodreads, find the category, extract the properties, instantiate category"
     #categories = []
     
-    fiction = self.new
-    fiction.name = "Fiction"
-    fiction.book = "Still Me (Me Before You #3)"
-    fiction.url = "https://www.goodreads.com/book/show/35791968-still-me?from_choice=true"
+    categories << self.scrape_winner_page 
+    
+    #fiction = self.new
+    #fiction.name = "Fiction"
+    #fiction.book = "Still Me (Me Before You #3)"
+    #fiction.url = "https://www.goodreads.com/book/show/35791968-still-me?from_choice=true"
 
-    mystery = self.new
-    mystery.name = "Mystery & Thriller"
-    mystery.book = "The Outsider"
-    mystery.url = "https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2018"
+    #mystery = self.new
+    #mystery.name = "Mystery & Thriller"
+    #mystery.book = "The Outsider"
+    #mystery.url = "https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2018"
 
-    [fiction, mystery]
+    #[fiction, mystery]
     #categories 
   end 
 
+  def self.scrape_winner_page
+    doc = Nokogiri::HTML(open("https://www.goodreads.com/choiceawards/best-books-2018"))
 end
