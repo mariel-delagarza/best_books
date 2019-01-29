@@ -1,7 +1,9 @@
-#This is the file that runs our program. 
+#!/usr/bin/env ruby
+#In your bin file, think about loading an interpreter and then loading an
+#environment of some sort.
 
-!/usr/bin/env ruby
-
-require './lib/environment'
+require '.lib/best_books'
+#The idea is that I have a class called CLI that I can instantiate
+#and say the call method on, and that's all I need to start my program.
 
 BestBooks::CLI.new.call
