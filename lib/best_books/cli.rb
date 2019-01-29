@@ -1,6 +1,3 @@
-#This file is for the Command Line Interface - what the user will interact with
-
-
 class BestBooks::CLI
 
 
@@ -8,14 +5,8 @@ class BestBooks::CLI
     puts "Welcome to the Goodreads Best Books of 2018!"
     list_categories
     menu
-    #start
     goodbye
   end
-
-  #def start
-  #  menu
-  #  goodbye
-  #end
 
   def list_categories
     puts ""
@@ -38,29 +29,17 @@ class BestBooks::CLI
 
       if input.to_i > 0
         category = @list[input.to_i-1]  
-        puts "#{category.book}"
-        
+        puts "#{category.name}"
       elsif input == "categories"
         list_categories
       else
         puts "I don't understand. Please enter a category number, type list, or type exit."
       end
-
     end
   end
 
   def goodbye
     puts "Good bye! Enjoy your books!"
   end
-
-
-
-
-
-
-
-
-
-
 
 end

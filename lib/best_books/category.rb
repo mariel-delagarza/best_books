@@ -3,9 +3,13 @@
 class BestBooks::Categories
   attr_accessor :name, :book, :url
 
-  @@all = [] 
+  @@all = []
     
-
+  def initialize(name=nil)
+    @name = name
+    @@all << self 
+  end 
+    
   def self.all
     self.scrape_categories
   end
@@ -71,17 +75,16 @@ class BestBooks::Categories
     categories.slice!(20..21)
     categories.insert(20, picture)
 
-    categories.join(", ")
-    @@all << categories
-    categories
+    categories.each do |genre|
+      genre = self.new 
+      genre.name = "#{genre}"
+      @@all << genre 
+    end 
+    @@all 
   end 
 
-  def create_categories 
-  @@all.each do |name|
-    category.name = name 
-  end 
-  
-  
-  
-  end 
 end 
+
+ 
+  
+  
