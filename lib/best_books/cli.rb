@@ -9,6 +9,7 @@ class BestBooks::CLI
     list_categories
     menu
     #start
+    goodbye
   end
 
   #def start
@@ -28,9 +29,21 @@ class BestBooks::CLI
   def menu
     puts ""
     puts "To see the top book in each category, enter the number of the category."
+    puts "Type exit to exit program."
+    while input != "exit"
+      input = gets.strip.downcase
+      case input
+      when "1"
+        puts "Top book in Fiction"
+      when "2"
+        puts "Top book in Horror"
+      end
+    end
   end
 
-
+  def goodbye
+    puts "Good bye! Enjoy your books!"
+  end
 
 
 
