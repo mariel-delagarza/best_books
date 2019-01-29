@@ -1,6 +1,6 @@
 #These are the categories Goodreads uses to sort their Best Books by genre
 
-class BestBooks::Category
+class BestBooks::Categories
   attr_accessor :name, :book, :url
 
   @@all = [] 
@@ -76,4 +76,11 @@ class BestBooks::Category
     categories
   end 
 
+  def create_categories 
+  @@all.each do |name|
+    category.name = name 
+  end 
+  
+  
+  end 
 end 
