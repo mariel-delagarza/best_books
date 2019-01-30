@@ -12,6 +12,10 @@ class BestBooks::Categories
     @@all << self
   end
 
+  def self.all
+    @@all
+  end
+
   def self.get_bookcards
     BestBooks::Scraper.scrape_categories
   end

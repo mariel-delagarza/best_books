@@ -2,6 +2,7 @@ class BestBooks::CLI
 
 
   def call
+    BestBooks::Categories.get_bookcards
     puts "Welcome to the Goodreads Best Books of 2018!"
     list_categories
     menu
@@ -11,7 +12,7 @@ class BestBooks::CLI
   def list_categories
     puts ""
     puts "Below is a list of the categories."
-    @list = BestBooks::Categories.get_bookcards
+    @list = BestBooks::Categories.all
     @list.each.with_index(1) do |category, i|
       puts "#{i}. #{category.name}"
     end
