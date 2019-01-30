@@ -3,7 +3,6 @@ class BestBooks::CLI
 
   def call
     BestBooks::Categories.get_bookcards
-    BestBooks::Book.get_book_info 
     puts "Welcome to the Goodreads Best Books of 2018!"
     list_categories
     menu
@@ -20,7 +19,6 @@ class BestBooks::CLI
   end
 
   def menu
-    #@books = BestBooks::Book.all 
     input = nil
     while input != "exit"
       puts ""
@@ -34,11 +32,12 @@ class BestBooks::CLI
         category = @list[input.to_i-1]
         puts ""
         puts "#{category.book}"
-       # puts "Would you like to see more information about this book? Y/N"
-        #input = gets.strip.downcase
-         # if input == y 
-          #  get_book_info 
-          #end 
+        puts "Would you like to see more information about this book? Y/N"
+        input = gets.strip.downcase
+          if input == "y"
+           "The author is #{category.author}." 
+           "#{category.description}"
+          end 
       elsif input == "categories"
         list_categories
       else
@@ -47,12 +46,6 @@ class BestBooks::CLI
     end
   end
   
- # def get_book_info
-  #  book = @books[input.to_i-1]
-   # puts "The author is #{book.author}."
-    #puts "#{book.description}"
-#  end 
-
   def goodbye
     puts "Good bye! Enjoy your books!"
   end
