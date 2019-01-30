@@ -19,6 +19,7 @@ class BestBooks::CLI
   end
 
   def menu
+    @books = BestBooks::Book.all 
     input = nil
     while input != "exit"
       puts ""
@@ -30,7 +31,13 @@ class BestBooks::CLI
 
       if input.to_i > 0
         category = @list[input.to_i-1]
+        puts ""
         puts "#{category.book}"
+        puts "Would you like to see more information about this book? Y/N"
+        input = gets.strip.downcase
+          if input == y 
+            get_book_info 
+          end 
       elsif input == "categories"
         list_categories
       else
@@ -38,6 +45,12 @@ class BestBooks::CLI
       end
     end
   end
+  
+  def get_book_info
+    book = @books[input.to_i-1]
+    puts "The author is #{book.author}."
+    puts "#{book.description}"
+  end 
 
   def goodbye
     puts "Good bye! Enjoy your books!"
