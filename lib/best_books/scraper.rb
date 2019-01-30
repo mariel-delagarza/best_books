@@ -10,5 +10,12 @@ class BestBooks::Scraper
       book = card.css("img").attr("alt").text
       BestBooks::Categories.new(name, book, url)
     end
+
+  def self.scrape_category_page 
+    doc = Nokogiri::HTML(open("https://www.goodreads.com/choiceawards/best-books-2018"))
+    url = doc.css("div.category.clearFix a").first.attr("href")
+    author = url.css("div.authorName__container a span").text 
+    description = url.css("div.readable.stacked.gcaBookDescription").text.strip
+    BestBooks::Categories.add_attributes(author, description)
   end
 end 

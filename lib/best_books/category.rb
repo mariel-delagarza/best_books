@@ -20,13 +20,12 @@ class BestBooks::Categories
     BestBooks::Scraper.scrape_categories
   end
   
-  def scrape_category_page
-    page = self.url 
-    doc = Nokogiri::HTML(open(page)) #open the URL 
+ # def self.scrape_category_page(page)
+  #  doc = Nokogiri::HTML(open(page)) 
     
-    self.author = doc.css("div.authorName__container a span").text 
-    self.description = doc.css("div.readable.stacked.gcaBookDescription").text.strip
+   # @author = doc.css("div.authorName__container a span").text 
+    #@description = doc.css("div.readable.stacked.gcaBookDescription").text.strip
     #@@all << self
-  end  
+  #end  
 
 end
