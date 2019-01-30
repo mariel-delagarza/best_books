@@ -1,4 +1,5 @@
 class BestBooks::Scraper
+  
   def self.scrape_categories
     doc = Nokogiri::HTML(open("https://www.goodreads.com/choiceawards/best-books-2018"))
 
@@ -11,4 +12,18 @@ class BestBooks::Scraper
       BestBooks::Categories.new(name, book, url)
     end
   end
-end
+  
+
+    
+  
+ def self.scrape_category_page
+    url = "https://www.goodreads.com/choiceawards/best-fiction-books-2018"
+    doc = Nokogiri::HTML(open(url)) #open the URL 
+    
+    book = Book.new
+    book.author = doc.css("div.authorName__container a span").text 
+    book.description = doc.css("div.readable.stacked.gcaBookDescription").text.strip
+    
+    book 
+  end 
+end 

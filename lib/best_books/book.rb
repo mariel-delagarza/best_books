@@ -6,18 +6,31 @@ class BestBooks::Book
   
   @@all = []
   
-  def initialize(title, category, author, description)
-    @title = title 
-    @category = category 
+  def initialize(author, description)
     @author = author 
     @description = description
     @@all << self 
   end 
-  
+    
   def self.all 
     @@all 
   end 
   
+  def self.title 
+    @titles = BestBooks::Category.book
+    titles.each do |title|
+      @title = title 
+    end 
+  end 
+    
+  def self.category 
+    @categories = BestBooks::Category.name 
+    categories.each do |category|
+      @category = category
+    end 
+  end 
   
-  
+  def self.get_book_info
+    BestBooks::Scraper.scrape_category_page 
+  end 
 end 
