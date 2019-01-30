@@ -29,7 +29,7 @@ class BestBooks::CLI
 
       if input.to_i > 0
         category = @list[input.to_i-1]
-        puts "#{category.name}"
+        puts "#{category.book}"
       elsif input == "categories"
         list_categories
       else
