@@ -11,10 +11,10 @@ class BestBooks::CLI
   def list_categories
     puts ""
     puts "Below is a list of the categories."
-    @list = BestBooks::Categories.all
+    @list = BestBooks::Categories.get_bookcards
     @list.each.with_index(1) do |category, i|
-      puts "#{i}. #{category}"
-    end 
+      puts "#{i}. #{category.name}"
+    end
   end
 
   def menu
@@ -28,7 +28,7 @@ class BestBooks::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        category = @list[input.to_i-1]  
+        category = @list[input.to_i-1]
         puts "#{category.name}"
       elsif input == "categories"
         list_categories
