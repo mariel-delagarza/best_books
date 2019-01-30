@@ -3,6 +3,7 @@ class BestBooks::CLI
 
   def call
     BestBooks::Categories.get_bookcards
+    BestBooks::Book.make_books 
     puts "Welcome to the Goodreads Best Books of 2018!"
     list_categories
     menu
