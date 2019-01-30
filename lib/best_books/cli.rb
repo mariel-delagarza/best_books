@@ -13,6 +13,7 @@ class BestBooks::CLI
     puts ""
     puts "Below is a list of the categories."
     @list = BestBooks::Categories.all
+    #@book = BestBooks::Categories.all 
     @list.each.with_index(1) do |category, i|
       puts "#{i}. #{category.name}"
     end
@@ -32,12 +33,7 @@ class BestBooks::CLI
         category = @list[input.to_i-1]
         puts ""
         puts "#{category.book}"
-        puts "Would you like to see more information about this book? Y/N"
-        input = gets.strip.downcase
-          if input == "y"
-           "The author is #{category.author}." 
-           "#{category.description}"
-          end 
+        more_info(category)
       elsif input == "categories"
         list_categories
       else
@@ -49,5 +45,17 @@ class BestBooks::CLI
   def goodbye
     puts "Good bye! Enjoy your books!"
   end
+  
+  def more_info(category)
+    input = nil 
+    puts "Would you like more information about this book? Y/N"
+    input = gets.strip.downcase 
+      if input == "y"
+        puts "The author is #{category.author}."
+        puts "#{category.description}"
+      else 
+        goodbye 
+      end 
+    end 
 
 end

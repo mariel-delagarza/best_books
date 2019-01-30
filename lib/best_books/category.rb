@@ -4,25 +4,18 @@ class BestBooks::Categories
   attr_accessor :name, :book, :url, :author, :description
 
   @@all = []
-  #@@every_url = []
 
   def initialize(name, book, url)
     @name = name
     @book = book
     @url = url
-    @@all << self
-    
-   # @@every_url << self.url 
+    @@all << self 
   end
 
   def self.all
     @@all
   end
   
-  def self.every_url
-    @@every_url
-  end 
-
   def self.get_bookcards
     BestBooks::Scraper.scrape_categories
   end
@@ -31,11 +24,9 @@ class BestBooks::Categories
     page = self.url 
     doc = Nokogiri::HTML(open(page)) #open the URL 
     
-    #book = BestBooks::Book.new 
     self.author = doc.css("div.authorName__container a span").text 
     self.description = doc.css("div.readable.stacked.gcaBookDescription").text.strip
-
-   # BestBooks::Book.all << book 
+    #@@all << self
   end  
 
 end
