@@ -4,16 +4,18 @@ class BestBooks::Categories
   attr_accessor :name, :book, :url
 
   @@all = []
-    
-  def initialize(name=nil)
+
+  def initialize(name, book, url)
     @name = name
-    @@all << self 
-  end 
-    
-  def self.all
-    self.scrape_categories
+    @book = book
+    @url = url
+    @@all << self
   end
-  
+
+  def self.get_bookcards
+    BestBooks::Scraper.scrape_categories
+  end
+
   def self.scrape_categories
     doc = Nokogiri::HTML(open("https://www.goodreads.com/choiceawards/best-books-2018"))
 
@@ -31,7 +33,7 @@ class BestBooks::Categories
     categories.slice!(4..7)
     categories.insert(4, best_of_best)
 
-    science_fiction = categories[6..7].join(" ") 
+    science_fiction = categories[6..7].join(" ")
     categories.slice!(6..7)
     categories.insert(6, science_fiction)
 
@@ -76,15 +78,11 @@ class BestBooks::Categories
     categories.insert(20, picture)
 
     categories.each do |genre|
-      genre = self.new 
+      genre = self.new
       genre.name = "#{genre}"
-      @@all << genre 
-    end 
-    @@all 
-  end 
+      @@all << genre
+    end
+    @@all
+  end
 
-end 
-
- 
-  
-  
+end
