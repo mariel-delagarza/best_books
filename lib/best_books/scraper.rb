@@ -1,5 +1,4 @@
 class BestBooks::Scraper
-
   def self.scrape_categories
     doc = Nokogiri::HTML(open("https://www.goodreads.com/choiceawards/best-books-2018"))
 
@@ -11,6 +10,5 @@ class BestBooks::Scraper
       book = card.css("img").attr("alt").text
       BestBooks::Categories.new(name, book, url)
     end
-
   end
 end
