@@ -5,7 +5,7 @@ require "best_books/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "best_books_md"
-  spec.version       = BestBooks_MD::VERSION
+  spec.version       = BestBooks::VERSION
   spec.authors       = ["'Mariel Adrianna de la Garza'"]
   spec.email         = ["'mariel.code@gmail.com'"]
 
