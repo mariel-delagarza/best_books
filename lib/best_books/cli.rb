@@ -2,8 +2,8 @@ class BestBooks::CLI
 
 
   def call
-    BestBooks::Categories.get_bookcards
-  #  BestBooks::Categories.scrape_category_page 
+    BestBooks::Categories.get_bookcards #scrapes for categories and urls
+  #  BestBooks::Categories.scrape_category_page
     puts "Welcome to the Goodreads Best Books of 2018!"
     list_categories
     menu
@@ -14,7 +14,7 @@ class BestBooks::CLI
     puts ""
     puts "Below is a list of the categories."
     @list = BestBooks::Categories.all
-    #@book = BestBooks::Categories.all 
+    #@book = BestBooks::Categories.all
     @list.each.with_index(1) do |category, i|
       puts "#{i}. #{category.name}"
     end
@@ -42,21 +42,21 @@ class BestBooks::CLI
       end
     end
   end
-  
+
   def goodbye
     puts "Good bye! Enjoy your books!"
   end
-  
+
   #def more_info(category)
-   # input = nil 
+   # input = nil
     #puts "Would you like more information about this book? Y/N"
-    #input = gets.strip.downcase 
+    #input = gets.strip.downcase
      # if input == "y"
       #  puts "The author is #{category.author}."
        # puts "#{category.description}"
-      #else 
-       # goodbye 
-    #  end 
-    #end 
+      #else
+       # goodbye
+    #  end
+    #end
 
 end
