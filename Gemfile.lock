@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    best_books (0.1.0)
+    best_books_md (0.1.0)
       nokogiri
 
 GEM
@@ -16,7 +16,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  best_books!
+  best_books_md!
   bundler (~> 2.0)
   rake (~> 10.0)
 
