@@ -18,8 +18,9 @@ class BestBooks::Scraper
   #  url = doc.css("div.category.clearFix a").first.attr("href")
     author = doc.css("div.authorName__container a span").text
     description = doc.css("div.readable.stacked.gcaBookDescription").text.strip
-    BestBooks::Book.new(author, description)
-
+    #BestBooks::Book.new(author, description)
+    category.author = author
+    category.description = description
   end
 
 end

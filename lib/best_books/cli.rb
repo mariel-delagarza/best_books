@@ -2,7 +2,7 @@ class BestBooks::CLI
 
   def call
     BestBooks::Categories.get_bookcards #will scrape first page for category names and urls
-    puts "Welcome ot the Goodreads Best Books of 2018!"
+    puts "Welcome to the Goodreads Best Books of 2018!"
     list_categories #want them to see the categories first
     menu
   end
@@ -24,6 +24,7 @@ class BestBooks::CLI
         choose_category
       when "categories"
         list_categories
+        choose_category
       when "exit"
         puts "Goodbye! Enjoy your books!"
       else
@@ -52,8 +53,9 @@ class BestBooks::CLI
     BestBooks::Scraper.scrape_book_details(category)
     puts "Here are the title, author, and a brief description:"
     puts category.book_title
-    puts category.book.author
-    puts category.book.description
+    puts category.author
+    puts category.description
+    puts ""
     second_menu
   end
 
