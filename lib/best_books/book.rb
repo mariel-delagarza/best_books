@@ -1,5 +1,4 @@
 class BestBooks::Book
-
   attr_accessor :author, :description
 
   @@all = []
@@ -9,5 +8,4 @@ class BestBooks::Book
     @description = description
     @@all << self
   end
-
 end
