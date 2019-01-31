@@ -1,8 +1,6 @@
 # BestBooks
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/best_books`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem looks at the Goodreads Choice Award winners and provides the user with a list of the categories and information about the winning book in each category, including: title, author, and a brief description. This information is pulled from https://www.goodreads.com/choiceawards/best-books-2018 
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Running ./bin/best_books will trigger the rest of the program to run. A menu is available at each decision point.
 
 ## Development
 
