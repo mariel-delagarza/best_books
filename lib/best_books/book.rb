@@ -4,4 +4,10 @@ class BestBooks::Book
 
   @@all = []
 
+  def initialize(author, description)
+    @author = author
+    @description = description
+    @@all << self
+  end
+
 end

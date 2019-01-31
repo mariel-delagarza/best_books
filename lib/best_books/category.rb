@@ -1,14 +1,14 @@
 #These are the categories Goodreads uses to sort their Best Books by genre
 
 class BestBooks::Categories
-  attr_accessor :name, :book_title, :url, :author, :description
-
+  attr_accessor :name, :book_title, :url, :book
   @@all = []
 
   def initialize(name, book_title, url)
     @name = name
     @book_title = book_title
     @url = url
+
     @@all << self
   end
 
@@ -20,12 +20,11 @@ class BestBooks::Categories
     BestBooks::Scraper.scrape_categories
   end
 
- # def self.scrape_category_page(page)
-  #  doc = Nokogiri::HTML(open(page))
+  #def add_book(book)
+  #  self.book << book
+  #  book.category = self
+#  end
 
-   # @author = doc.css("div.authorName__container a span").text
-    #@description = doc.css("div.readable.stacked.gcaBookDescription").text.strip
-    #@@all << self
-  #end
+
 
 end
