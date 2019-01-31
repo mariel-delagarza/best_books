@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "best_books/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "best_books"
-  spec.version       = BestBooks::VERSION
+  spec.name          = "best_books_md"
+  spec.version       = BestBooks_MD::VERSION
   spec.authors       = ["'Mariel Adrianna de la Garza'"]
   spec.email         = ["'mariel.code@gmail.com'"]
 
