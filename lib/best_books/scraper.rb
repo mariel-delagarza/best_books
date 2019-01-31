@@ -15,10 +15,8 @@ class BestBooks::Scraper
   def self.scrape_book_details(category)
     basepath = "https://www.goodreads.com"
     doc = Nokogiri::HTML(open("#{basepath + category.url}"))
-  #  url = doc.css("div.category.clearFix a").first.attr("href")
     author = doc.css("div.authorName__container a span").text
     description = doc.css("div.readable.stacked.gcaBookDescription").text.strip
-    #BestBooks::Book.new(author, description)
     category.author = author
     category.description = description
   end
